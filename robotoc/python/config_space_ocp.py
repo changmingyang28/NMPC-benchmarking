@@ -17,11 +17,11 @@ model, collision_model, visual_model = pin.buildModelsFromUrdf(
                 model_info.urdf_path,
                 mesh_dir
             )
-viz_manipulator =  GepettoVisualizer(model, collision_model, visual_model)
-viz_manipulator.initViewer()
-viz_manipulator.loadViewerModel("robot")
-viz_manipulator.display(np.array([0,0,0,0,0,0,0]))
-input()
+#viz_manipulator =  GepettoVisualizer(model, collision_model, visual_model)
+#viz_manipulator.initViewer()
+#viz_manipulator.loadViewerModel("robot")
+#viz_manipulator.display(np.array([0,0,0,0,0,0,0]))
+#input()
 # Change the limits from the default parameters.
 robot.set_joint_effort_limit(np.full(robot.dimu(), 50))
 robot.set_joint_velocity_limit(np.full(robot.dimv(), 0.5 * math.pi))

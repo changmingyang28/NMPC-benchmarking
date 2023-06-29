@@ -53,5 +53,5 @@ ax.set_zlabel('Z')
 ax.set_title('3D Teapot')
 
 # Show the plot
-plt.show()
-
+##plt.show()
+plt.savefig("test.png")
