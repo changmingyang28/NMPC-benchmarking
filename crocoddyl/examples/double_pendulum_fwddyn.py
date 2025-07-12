@@ -36,9 +36,9 @@ xPendCost = CostModelDoublePendulum(
     state, crocoddyl.ActivationModelWeightedQuad(np.array([1.0] * 4 + [0.1] * 2)), nu
 )
 
-dt = 1e-2
+dt = 1e-3
 
-runningCostModel.addCost("uReg", uRegCost, 1e-4 / dt)
+runningCostModel.addCost("uReg", uRegCost, 1e-5 / dt)    
 runningCostModel.addCost("xGoal", xPendCost, 1e-5 / dt)
 terminalCostModel.addCost("xGoal", xPendCost, 100.0)
 
@@ -94,10 +94,11 @@ else:
 solver.getCallbacks()[0].precision = 3
 solver.getCallbacks()[0].level = crocoddyl.VerboseLevel._2
 
-# Solving the problem with the FDDP solver
+#Solving the problem with the FDDP solver
+start_time=time.time()
 solver.solve()
-
-# Plotting the entire motion
+end_time= time.time()
+#Plotting the entire motion
 if WITHPLOT:
     log = solver.getCallbacks()[1]
     crocoddyl.plotOCSolution(log.xs, log.us, figIndex=1, show=False)
@@ -112,3 +113,5 @@ if WITHDISPLAY:
     while True:
         display.displayFromSolver(solver)
         time.sleep(1.0)
+
+print(end_time-start_time)

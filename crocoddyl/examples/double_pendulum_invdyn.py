@@ -9,6 +9,7 @@ import example_robot_data
 import numpy as np
 
 import crocoddyl
+
 from crocoddyl.utils.pendulum import (
     ActuationModelDoublePendulum,
     CostModelDoublePendulum,
@@ -99,8 +100,10 @@ solver.getCallbacks()[0].precision = 3
 solver.getCallbacks()[0].level = crocoddyl.VerboseLevel._2
 
 # Solving the problem with the solver
-solver.solve()
 
+start_time= time.time()
+solver.solve()
+end_time  = time.time()
 # Plotting the entire motion
 if WITHPLOT:
     log = solver.getCallbacks()[1]
@@ -118,3 +121,5 @@ if WITHDISPLAY:
     while True:
         display.displayFromSolver(solver)
         time.sleep(1.0)
+
+print(end_time-start_time)

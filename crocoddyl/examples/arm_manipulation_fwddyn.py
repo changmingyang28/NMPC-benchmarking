@@ -21,6 +21,7 @@ signal.signal(signal.SIGINT, signal.SIG_DFL)
 # First, let's load create the state and actuation models
 kinova = example_robot_data.load("kinova")
 robot_model = kinova.model
+print(robot_model)
 state = crocoddyl.StateMultibody(robot_model)
 actuation = crocoddyl.ActuationModelFull(state)
 q0 = kinova.model.referenceConfigurations["arm_up"]

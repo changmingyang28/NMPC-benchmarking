@@ -20,7 +20,7 @@ rmodel = robot.model
 lims = rmodel.effortLimit
 # lims[19:] *= 0.5  # reduced artificially the torque limits
 rmodel.effortLimit = lims
-
+print(lims)
 # Create data structures
 rdata = rmodel.createData()
 state = crocoddyl.StateMultibody(rmodel)

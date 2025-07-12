@@ -138,7 +138,7 @@ if WITHDISPLAY:
 
 print("*** SOLVE with Box-DDP ***")
 boxddp.th_stop = 1e-7
-boxddp.solve(xs, us, 30, False)
+boxddp.solve(xs, us, 50, False)
 
 # Display the entire motion
 if WITHDISPLAY:

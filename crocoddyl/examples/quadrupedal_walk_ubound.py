@@ -20,7 +20,7 @@ robot_model = anymal.model
 lims = robot_model.effortLimit
 lims *= 0.5  # reduced artificially the torque limits
 robot_model.effortLimit = lims
-
+print(robot_model)
 # Setting up the 3d walking problem
 lfFoot, rfFoot, lhFoot, rhFoot = "LF_FOOT", "RF_FOOT", "LH_FOOT", "RH_FOOT"
 gait = SimpleQuadrupedalGaitProblem(robot_model, lfFoot, rfFoot, lhFoot, rhFoot)

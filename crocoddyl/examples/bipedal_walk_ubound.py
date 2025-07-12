@@ -19,7 +19,7 @@ talos_legs = example_robot_data.load("talos_legs")
 lims = talos_legs.model.effortLimit
 lims *= 0.5  # reduced artificially the torque limits
 talos_legs.model.effortLimit = lims
-
+print(talos_legs)
 # Defining the initial state of the robot
 q0 = talos_legs.model.referenceConfigurations["half_sitting"].copy()
 v0 = pinocchio.utils.zero(talos_legs.model.nv)
